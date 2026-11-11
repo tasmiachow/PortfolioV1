@@ -147,6 +147,47 @@ dialog::backdrop {
 html:has(dialog[open]) {
   overflow: hidden;
 }
+/* Style the close button */
+.modal-close-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.modal-close-btn:hover {
+  background-color: #0056b3;
+}
+
+.modal-close-btn:active {
+  transform: scale(0.98);
+}
+
+/* Responsive styles for mobile devices */
+@media (max-width: 600px) {
+  dialog {
+    max-width: 90%;
+    width: 90%;
+    padding: 16px;
+    margin: auto;
+  }
+
+  .modal-content h2 {
+    font-size: 1.25rem;
+  }
+
+  .modal-close-btn {
+    width: 100%; /* Make the button full-width on mobile for easier tapping */
+    padding: 12px;
+  }
+}
 
 
 
