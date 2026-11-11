@@ -124,6 +124,33 @@ body {
     color: #FFFFFF;
 }
 
+/* modal */
+
+
+/* Style the modal container itself */
+dialog {
+  border: none;
+  border-radius: 8px;
+  padding: 24px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Style the darkened background backdrop */
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px); /* Adds a subtle blur to the background view */
+}
+
+/* Optional: Prevent background scrolling when modal is open */
+html:has(dialog[open]) {
+  overflow: hidden;
+}
+
+
+
+
 /* Base button styles */
 .blueButtons button {
     border-radius: 50px;

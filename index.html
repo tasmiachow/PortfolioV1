@@ -49,6 +49,22 @@
     <a href="Tasmia_Chowdhury_Resume.pdf" target="_blank"><button>Resume</button></a>
   </div>
   <br><br>
+
+  <dialog id="my-modal">
+      <div class="modal-content">
+        <h2>Hello this site is outdated please head over to!</h2>
+        <p><a href="https://tasmiachow.vercel.app/"> Updated Porfolio site </a></p>
+        
+        <!-- Close Button -->
+        <button id="close-modal-btn">Close</button>
+      </div>
+  </dialog>
+
+
+
+
+
+
   <div class="about" id="about-me">
     <!-- About me content container-->
     <div class="content">
@@ -65,7 +81,7 @@
           <span style="font-size:0.9rem; color:#243E36; font-weight: 700;">Grad Date: Jan 2025 </span>
           <br /><br />
          
-           <div class="tooltip"> <a href="https://github.com/tasmiachow/JetGenie" target="_blank"><img src="images/hack.jpg" alt="hackathon" class="fun-pic"> </a>
+           <div class="tooltip"> <a href="https://github.com/tasmiachow/JetGenie" target="_blank"><img src="images/jetGenie-poster.png" alt="hackathon" class="fun-pic"> </a>
              <span class="tooltiptext"> <a href="https://github.com/tasmiachow/JetGenie" target="_blank">Hackathon Project CLICK ME!</a> </span>
            </div>
          
@@ -127,7 +143,7 @@
       <!-- Project Link -->
       <a href="https://github.com/tasmiachow/Capstone" class="project" target="_blank">
         <!-- Project Image -->
-        <img src="images/hands2WordsSc.PNG" alt="Hands2Words" />
+        <img src="./images/hands2WordsSc.PNG" alt="Hands2Words" />
         <h1>Hands2Words</h1>
         <!-- Project Description -->
         <p class="proj"> A computer vision powered ASL learning app with real-time gesture recognition and feedback.</p>
@@ -136,7 +152,7 @@
       <!-- Add other projects here using the same structure -->
 
       <a href="https://github.com/tasmiachow/libraryAPI" class="project" target="_blank">
-        <img src="images/library.jpg" alt="Library API" />
+        <img src="./images/library.jpg" alt="Library API" />
         <h1>Library API </h1>
         <p class="proj">Developed a C++ Library API to manage book collections, enabling efficient check-in/out and checkout history tracking 
           for optimized library operations.
@@ -147,18 +163,17 @@
     <!-- Project Row 2 -->
     <div class="project-row">
       <a href="https://github.com/tasmiachow/Pokemon" class="project" target="_blank">
-        <img src="images/thanks.gif" alt="Pokemon Website"/>
+        <img src="./images/thanks.gif" alt="Pokemon Website"/>
         <h1>Pokemon Battle Simulator </h1>
         <p class="proj">A full-stack web application, using React, Express, Node.js, and Firebase. </p>
       </a>
       
       
-      <!-- <a href="https://github.com/Dewiin/DTM_CTP2024" class="project" target="_blank">
-        <img src="images/BlemishBotTran.png" alt="BlemishBot"/>
-        <h1>BlemishBot</h1>
-        <p class="proj">Finetuned a YOLOv8 model for classifying 6 different types of acne from 
-          a selfie. Providing personalized treatment recs based on findings.</p>
-      </a> -->
+      <a href="https://tasmiachow.vercel.app/" class="project" target="_blank">
+        <img src="./images/updated_site.png" alt="Portfolio Project"/>
+        <h1>Latest Portfolio Site</h1>
+        <p class="proj">Created a modular portfolio site that utilizes svgs and custom GSAP animations! The site is accessible for those who prefer reduced motion.</p>
+      </a>
 
 
     </div>
@@ -205,6 +220,36 @@
   </footer>
 
   <script>
+    const modal = document.getElementById('my-modal');
+    const closeBtn = document.getElementById('close-modal-btn');
+
+          // Open the modal as a true backdrop dialog
+      if (!sessionStorage.getItem('modalShownThisSession')) {
+        setTimeout(() => {
+            modal.showModal();
+            sessionStorage.setItem('modalShownThisSession', 'true');
+        }, 3000);
+    }
+
+      closeBtn.addEventListener('click', () => {
+          modal.close();
+      });
+
+      // Close the modal if clicking outside on the backdrop overlay
+      modal.addEventListener('click', (e) => {
+        const dialogDimensions = modal.getBoundingClientRect();
+        if (
+          e.clientX < dialogDimensions.left ||
+          e.clientX > dialogDimensions.right ||
+          e.clientY < dialogDimensions.top ||
+          e.clientY > dialogDimensions.bottom
+        ) {
+          modal.close();
+        }
+      });
+
+
+
     window.addEventListener("scroll", function () {
       const navbar = document.querySelector(".navbar");
       if (window.scrollY > 50) {
